@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChemtechUrgot", "ChemtechUrgot\ChemtechUrgot.csproj", "{B4F1E63D-287E-4565-8A0A-0D699F5489E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4F1E63D-287E-4565-8A0A-0D699F5489E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F1E63D-287E-4565-8A0A-0D699F5489E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F1E63D-287E-4565-8A0A-0D699F5489E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F1E63D-287E-4565-8A0A-0D699F5489E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C3BB10D-798F-439B-B89A-FE09F3F1F6A9}
+	EndGlobalSection
+EndGlobal

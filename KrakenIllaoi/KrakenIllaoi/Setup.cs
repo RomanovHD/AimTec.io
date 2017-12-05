@@ -87,7 +87,6 @@ namespace KrakenIllaoi
                     new MenuBool("AA", "Reset AA with Tiamat items"),
                     new MenuKeyBind("LK", "Clear spells toggle key", KeyCode.A, KeybindType.Toggle),
                     new MenuKeyBind("HK", "Harass spells toggle key", KeyCode.S, KeybindType.Toggle),
-                    new MenuKeyBind("FK", "Flee hold key", KeyCode.Z, KeybindType.Press),
                 };
                 Main.Add(Misc);
             }

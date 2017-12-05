@@ -203,7 +203,7 @@ namespace FoxAhri
                 if (line != null && line.numberOfMinionsHit >= Setup.Laneclear["Qx"].As<MenuSlider>().Value)
                     Spells.Q.Cast(line.CastPosition);
             }
-            if (Setup.Combo["W"].As<MenuBool>().Enabled && Spells.W.Ready)
+            if (Setup.Laneclear["W"].As<MenuBool>().Enabled && Spells.W.Ready)
             {
                 var Wminions = GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Spells.W.Range)).ToList();
                 foreach (var minion in Wminions)

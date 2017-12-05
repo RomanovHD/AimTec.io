@@ -1,2 +1,0 @@
-C:\Users\Marvin\source\repos\AhriHD\AhriHD\obj\Debug\AhriHD.csprojResolveAssemblyReference.cache
-C:\Users\Marvin\source\repos\AhriHD\AhriHD\obj\Debug\AhriHD.csproj.CoreCompileInputs.cache

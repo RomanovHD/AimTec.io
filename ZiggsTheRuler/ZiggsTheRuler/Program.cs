@@ -132,7 +132,7 @@ namespace ZiggsTheRuler
                 var pred = Spells.Q.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
                 {
-                    Spells.Q.Cast(target);
+                    Spells.Q.Cast(pred.CastPosition);
                 }
             }
 
@@ -142,7 +142,7 @@ namespace ZiggsTheRuler
                 var pred = Spells.E.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
                 {
-                    Spells.E.Cast(target);
+                    Spells.E.Cast(pred.CastPosition);
                 }
             }
 
@@ -156,11 +156,11 @@ namespace ZiggsTheRuler
                     var mode = Setup.Combo["Wmode"].As<MenuList>().Value;
                     if (mode == 0)
                     {
-                        Spells.W.Cast(Player.ServerPosition.Extend(pred.CastPosition, dist + 250));
+                        Spells.W.Cast(Player.ServerPosition.Extend(pred.CastPosition, dist + 150));
                     }
                     if (mode == 1)
                     {
-                        Spells.W.Cast(Player.ServerPosition.Extend(pred.CastPosition, dist - 250));
+                        Spells.W.Cast(Player.ServerPosition.Extend(pred.CastPosition, dist - 150));
                     }
                 }
             }
@@ -177,7 +177,7 @@ namespace ZiggsTheRuler
                 var pred = Spells.Q.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
                 {
-                    Spells.Q.Cast(target);
+                    Spells.Q.Cast(pred.CastPosition);
                 }
             }
 
@@ -187,7 +187,7 @@ namespace ZiggsTheRuler
                 var pred = Spells.E.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
                 {
-                    Spells.E.Cast(target);
+                    Spells.E.Cast(pred.CastPosition);
                 }
             }
 
@@ -201,11 +201,11 @@ namespace ZiggsTheRuler
                     var mode = Setup.Harass["Wmode"].As<MenuList>().Value;
                     if (mode == 0)
                     {
-                        Spells.W.Cast(Player.ServerPosition.Extend(pred.CastPosition, dist + 250));
+                        Spells.W.Cast(Player.ServerPosition.Extend(pred.CastPosition, dist + 150));
                     }
                     if (mode == 1)
                     {
-                        Spells.W.Cast(Player.ServerPosition.Extend(pred.CastPosition, dist - 250));
+                        Spells.W.Cast(Player.ServerPosition.Extend(pred.CastPosition, dist - 150));
                     }
                 }
             }
@@ -302,7 +302,7 @@ namespace ZiggsTheRuler
                 var target = TargetSelector.GetTarget(Spells.E.Range);
                 var pred = Spells.E.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                    Spells.E.Cast(target);
+                    Spells.E.Cast(pred.CastPosition);
             }
 
             if (Setup.Flee["W"].As<MenuBool>().Enabled && Spells.W.Ready && Player.GetSpell(SpellSlot.W).ToggleState == 0)
@@ -343,7 +343,7 @@ namespace ZiggsTheRuler
                 var pred = Spells.R.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High && Rdmg(target) > target.Health)
                 {
-                    Spells.R.Cast(target);
+                    Spells.R.Cast(pred.CastPosition);
                 }
             }
 
@@ -353,7 +353,7 @@ namespace ZiggsTheRuler
                 var pred = Spells.W.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High && Wdmg(target) > target.Health)
                 {
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
                 }
             }
 
@@ -363,7 +363,7 @@ namespace ZiggsTheRuler
                 var pred = Spells.E.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High && Edmg(target) > target.Health)
                 {
-                    Spells.E.Cast(target);
+                    Spells.E.Cast(pred.CastPosition);
                 }
             }
 
@@ -373,7 +373,7 @@ namespace ZiggsTheRuler
                 var pred = Spells.Q.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High && Qdmg(target) > target.Health)
                 {
-                    Spells.Q.Cast(target);
+                    Spells.Q.Cast(pred.CastPosition);
                 }
             }
         }

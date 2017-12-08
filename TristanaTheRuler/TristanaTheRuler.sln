@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TristanaTheRuler", "TristanaTheRuler\TristanaTheRuler.csproj", "{1B0F8952-A67F-4598-BE34-D69A0E019D7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B0F8952-A67F-4598-BE34-D69A0E019D7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B0F8952-A67F-4598-BE34-D69A0E019D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B0F8952-A67F-4598-BE34-D69A0E019D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B0F8952-A67F-4598-BE34-D69A0E019D7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11934157-1960-46C3-A71C-3FD9B0BF3AA6}
+	EndGlobalSection
+EndGlobal

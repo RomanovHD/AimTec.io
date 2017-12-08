@@ -22,7 +22,7 @@ namespace FrostAshe
         public static void Initialize()
         {
             {
-                Main = new Menu("Ashe", "[7.24] AsheTheRuler", true);
+                Main = new Menu("Ashe", "[7.24] Ashe the Ruler", true);
                 Orbwalker.Implementation.Attach(Main);
             }
 

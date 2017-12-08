@@ -17,7 +17,7 @@ namespace ZiggsTheRuler
             Q.SetSkillshot(0.25f, 180, 1700, false, SkillshotType.Circle);
             W.SetSkillshot(0.25f, 325, 1750, false, SkillshotType.Circle);
             E.SetSkillshot(1, 325, 1750, false, SkillshotType.Circle);
-            R.SetSkillshot(1, 350, 1500, false, SkillshotType.Circle);
+            R.SetSkillshot(0.7f, 550, 1500, false, SkillshotType.Circle);
         }
     }
 }

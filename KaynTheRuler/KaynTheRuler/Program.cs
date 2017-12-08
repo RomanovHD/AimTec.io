@@ -271,7 +271,7 @@ namespace KaynTheRuler
                 var Wminions = GameObjects.Jungle.Where(m => m.IsValidTarget(Spells.W.Range)).ToList();
                 foreach (var minion in Wminions)
                     if (Wminions.Count >= 1)
-                        Spells.W.Cast(Game.CursorPos);
+                        Spells.W.Cast(minion);
             }
 
             if (Setup.Clear["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
@@ -279,7 +279,7 @@ namespace KaynTheRuler
                 var Qminions = GameObjects.Jungle.Where(m => m.IsValidTarget(Spells.Q.Range)).ToList();
                 foreach (var minion in Qminions)
                     if (Qminions.Count >= 1)
-                        Spells.Q.Cast(Game.CursorPos);
+                        Spells.Q.Cast(minion);
             }
         }
 

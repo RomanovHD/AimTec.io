@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("FrostAshe")]
+[assembly: AssemblyTitle("AsheTheRuler")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
@@ -15,5 +15,5 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("fc07c808-2424-485d-9f70-4e5becf66d4d")]
 
-[assembly: AssemblyVersion("0.0.0.1")]
-[assembly: AssemblyFileVersion("0.0.0.1")]
+[assembly: AssemblyVersion("7.24.0.0")]
+[assembly: AssemblyFileVersion("7.24.0.0")]

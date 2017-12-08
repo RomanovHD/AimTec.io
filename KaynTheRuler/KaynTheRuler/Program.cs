@@ -70,14 +70,14 @@ namespace KaynTheRuler
                 {
                     var pred = Spells.W.GetPrediction(target);
                     if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                        Spells.W.Cast(target);
+                        Spells.W.Cast(pred.CastPosition);
                 }
 
                 if (Setup.Combo["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
                 {
                     var pred = Spells.Q.GetPrediction(target);
                     if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                        Spells.Q.Cast(target);
+                        Spells.Q.Cast(pred.CastPosition);
                 }
             }
 
@@ -87,14 +87,14 @@ namespace KaynTheRuler
                 {
                     var pred = Spells.W.GetPrediction(target);
                     if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                        Spells.W.Cast(target);
+                        Spells.W.Cast(pred.CastPosition);
                 }
 
                 if (Setup.Harass["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
                 {
                     var pred = Spells.Q.GetPrediction(target);
                     if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                        Spells.Q.Cast(target);
+                        Spells.Q.Cast(pred.CastPosition);
                 }
             }
         }
@@ -177,7 +177,7 @@ namespace KaynTheRuler
                     {
                         return;
                     }
-                Spells.W.Cast(target);
+                Spells.W.Cast(pred.CastPosition);
             }
 
             if (Setup.Combo["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
@@ -188,7 +188,7 @@ namespace KaynTheRuler
                     {
                         return;
                     }
-                Spells.Q.Cast(target);
+                Spells.Q.Cast(pred.CastPosition);
             }
         }
 
@@ -206,7 +206,7 @@ namespace KaynTheRuler
                     {
                         return;
                     }
-                Spells.W.Cast(target);
+                Spells.W.Cast(pred.CastPosition);
             }
 
             if (Setup.Harass["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
@@ -217,7 +217,7 @@ namespace KaynTheRuler
                     {
                         return;
                     }
-                Spells.Q.Cast(target);
+                Spells.Q.Cast(pred.CastPosition);
             }
         }
 
@@ -334,7 +334,7 @@ namespace KaynTheRuler
                 var target = TargetSelector.GetTarget(Spells.W.Range);
                 var pred = Spells.W.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
             }
         }
 
@@ -361,7 +361,7 @@ namespace KaynTheRuler
                 var pred = Spells.W.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High && Wdmg(target) > target.Health)
                 {
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
                 }
             }
 
@@ -371,7 +371,7 @@ namespace KaynTheRuler
                 var pred = Spells.Q.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High && Qdmg(target) > target.Health)
                 {
-                    Spells.Q.Cast(target);
+                    Spells.Q.Cast(pred.CastPosition);
                 }
             }
         }

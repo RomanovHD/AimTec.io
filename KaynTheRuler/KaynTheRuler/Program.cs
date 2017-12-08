@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Drawing;
 using Aimtec;
 using Aimtec.SDK.Menu.Components;
@@ -183,6 +183,7 @@ namespace KaynTheRuler
             if (Setup.Combo["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
             {
                 var target = TargetSelector.GetTarget(Spells.Q.Range + 100);
+                var pred = Spells.Q.GetPrediction(target);
                 if (target.IsValidTarget())
                     if (target.Distance(Player.ServerPosition) < 175 && Setup.Combo["DPS"].As<MenuBool>().Enabled)
                     {
@@ -196,7 +197,7 @@ namespace KaynTheRuler
         {
             if (Player.ManaPercent() < Setup.Harass["Mana"].As<MenuSlider>().Value || !Setup.Harass["Key"].Enabled)
                 return;
-            
+
             if (Setup.Harass["W"].As<MenuBool>().Enabled && Spells.W.Ready)
             {
                 var target = TargetSelector.GetTarget(Spells.W.Range);
@@ -212,6 +213,7 @@ namespace KaynTheRuler
             if (Setup.Harass["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
             {
                 var target = TargetSelector.GetTarget(Spells.Q.Range + 100);
+                var pred = Spells.Q.GetPrediction(target);
                 if (target.IsValidTarget())
                     if (target.Distance(Player.ServerPosition) < 175 && Setup.Combo["DPS"].As<MenuBool>().Enabled)
                     {

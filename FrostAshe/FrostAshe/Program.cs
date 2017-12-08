@@ -222,7 +222,7 @@ namespace FrostAshe
                 var Wminions = GameObjects.Jungle.Where(m => m.IsValidTarget(Spells.W.Range)).ToList();
                 foreach (var minion in Wminions)
                     if (Wminions.Count >= Setup.Jungleclear["Wx"].As<MenuSlider>().Value)
-                        Spells.W.Cast(pred.CastPosition);
+                        Spells.W.Cast(minion);
             }
             if (Setup.Jungleclear["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
             {

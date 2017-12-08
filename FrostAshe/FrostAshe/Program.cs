@@ -75,8 +75,9 @@ namespace FrostAshe
             if (Orbwalker.Implementation.Mode.Equals(OrbwalkingMode.Combo) && Setup.Combo["W"].As<MenuBool>().Enabled && Spells.W.Ready)
             {
                 Obj_AI_Hero target = events.Target as Obj_AI_Hero;
+                var pred = Spells.W.GetPrediction(target);
                 if (target != null)
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
             }
             if (Orbwalker.Implementation.Mode.Equals(OrbwalkingMode.Combo) && Setup.Combo["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
             {
@@ -85,8 +86,9 @@ namespace FrostAshe
             if (Orbwalker.Implementation.Mode.Equals(OrbwalkingMode.Mixed) && Setup.Harass["W"].As<MenuBool>().Enabled && Spells.W.Ready)
             {
                 Obj_AI_Hero target = events.Target as Obj_AI_Hero;
+                var pred = Spells.W.GetPrediction(target);
                 if (target != null)
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
             }
             if (Orbwalker.Implementation.Mode.Equals(OrbwalkingMode.Mixed) && Setup.Harass["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
             {
@@ -144,14 +146,14 @@ namespace FrostAshe
                 var target = TargetSelector.GetTarget(Setup.Misc["RR"].As<MenuSlider>().Value);
                 var pred = Spells.R.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High && Rdmg(target) + Wdmg(target) + Player.GetAutoAttackDamage(target) * Setup.Combo["AA"].As<MenuSlider>().Value > target.Health)
-                    Spells.R.Cast(target);
+                    Spells.R.Cast(pred.CastPosition);
             }
             if (Setup.Combo["W"].As<MenuBool>().Enabled && Spells.W.Ready)
             {
                 var target = TargetSelector.GetTarget(Spells.W.Range);
                 var pred = Spells.W.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High && target.Distance(Player.ServerPosition) > Spells.Q.Range)
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
             }
         }
 
@@ -165,7 +167,7 @@ namespace FrostAshe
                 var target = TargetSelector.GetTarget(Spells.W.Range);
                 var pred = Spells.W.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
             }
         }
 
@@ -220,7 +222,7 @@ namespace FrostAshe
                 var Wminions = GameObjects.Jungle.Where(m => m.IsValidTarget(Spells.W.Range)).ToList();
                 foreach (var minion in Wminions)
                     if (Wminions.Count >= Setup.Jungleclear["Wx"].As<MenuSlider>().Value)
-                        Spells.W.Cast(minion);
+                        Spells.W.Cast(pred.CastPosition);
             }
             if (Setup.Jungleclear["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
             {
@@ -241,14 +243,14 @@ namespace FrostAshe
                 var target = TargetSelector.GetOrderedTargets(Setup.Misc["RR"].As<MenuSlider>().Value).FirstOrDefault(x => Player.GetSpellDamage(x, SpellSlot.R) >= x.Health);
                 var pred = Spells.R.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                    Spells.R.Cast(target);
+                    Spells.R.Cast(pred.CastPosition);
             }
             if (Setup.Killsteal["W"].As<MenuBool>().Enabled && Spells.W.Ready)
             {
                 var target = TargetSelector.GetOrderedTargets(Spells.W.Range).FirstOrDefault(x => Player.GetSpellDamage(x, SpellSlot.W) >= x.Health);
                 var pred = Spells.W.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
             }
         }
 
@@ -264,14 +266,14 @@ namespace FrostAshe
                 var target = TargetSelector.GetTarget(Setup.Misc["RR"].As<MenuSlider>().Value);
                 var pred = Spells.R.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                    Spells.R.Cast(target);
+                    Spells.R.Cast(pred.CastPosition);
             }
             if (Setup.Flee["W"].As<MenuBool>().Enabled && Spells.W.Ready)
             {
                 var target = TargetSelector.GetTarget(Spells.W.Range);
                 var pred = Spells.W.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                    Spells.W.Cast(target);
+                    Spells.W.Cast(pred.CastPosition);
             }
         }
 
@@ -282,7 +284,7 @@ namespace FrostAshe
                 var target = TargetSelector.GetTarget(Setup.Misc["RR"].As<MenuSlider>().Value);
                 var pred = Spells.R.GetPrediction(target);
                 if (target.IsValidTarget() && pred.HitChance >= HitChance.High)
-                    Spells.R.Cast(target);
+                    Spells.R.Cast(pred.CastPosition);
             }
         }
 

@@ -68,7 +68,6 @@ namespace TwitchTheRuler
                 Killsteal = new Menu("Killsteal", "Killsteal")
                 {
                     new MenuBool("E", "E - Contaminate"),
-                    new MenuBool("R", "R - Spray and Pray"),
                     new MenuBool("Recall", "Disable Killsteal while recalling", false),
                     new MenuSlider("Mana", "Min mana %", 0),
                 };

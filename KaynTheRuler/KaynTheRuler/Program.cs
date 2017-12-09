@@ -272,7 +272,7 @@ namespace KaynTheRuler
             {
                 var Wminions = GameObjects.Jungle.Where(m => m.IsValidTarget(Spells.W.Range)).ToList();
                 foreach (var minion in Wminions)
-                    if (Wminions.Count >= 1)
+                    if (Wminions.Count >= 1 && minion.HasBuff("dummypercenthealthresistance"))
                         Spells.W.Cast(minion);
             }
 
@@ -280,7 +280,7 @@ namespace KaynTheRuler
             {
                 var Qminions = GameObjects.Jungle.Where(m => m.IsValidTarget(Spells.Q.Range)).ToList();
                 foreach (var minion in Qminions)
-                    if (Qminions.Count >= 1)
+                    if (Qminions.Count >= 1 && minion.HasBuff("dummypercenthealthresistance"))
                         Spells.Q.Cast(minion);
             }
         }

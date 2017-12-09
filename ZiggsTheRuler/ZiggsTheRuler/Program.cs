@@ -272,7 +272,7 @@ namespace ZiggsTheRuler
             {
                 var Eminions = GameObjects.Jungle.Where(m => m.IsValidTarget(Spells.E.Range)).ToList();
                 foreach (var minion in Eminions)
-                    if (Eminions.Count >= 1)
+                    if (Eminions.Count >= 1 && minion.HasBuff("dummypercenthealthresistance"))
                         Spells.E.Cast(minion);
             }
 
@@ -280,7 +280,7 @@ namespace ZiggsTheRuler
             {
                 var Qminions = GameObjects.Jungle.Where(m => m.IsValidTarget(Spells.Q.Range)).ToList();
                 foreach (var minion in Qminions)
-                    if (Qminions.Count >= 1)
+                    if (Qminions.Count >= 1 && minion.HasBuff("dummypercenthealthresistance"))
                         Spells.Q.Cast(minion);
             }
         }

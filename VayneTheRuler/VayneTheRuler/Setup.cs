@@ -40,6 +40,7 @@ namespace VayneTheRuler
                     new MenuBool("Q", "Q - Tumble"),
                     new MenuBool("W", "Focus W marked enemies"),
                     new MenuBool("E", "E - Codemn"),
+                    new MenuBool("Flash", "Flash Codemn kill combo"),
                     new MenuBool("R", "R - Final Hour"),
                     new MenuSlider("Rx", "Min enemies", 2, 1, 5),
                     new MenuBool("1v1", "Enable 1v1 logic"),

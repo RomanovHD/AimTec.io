@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using Aimtec;
 using Aimtec.SDK.Menu.Components;
@@ -8,9 +7,8 @@ using Aimtec.SDK.Orbwalking;
 using Aimtec.SDK.TargetSelector;
 using Aimtec.SDK.Extensions;
 using Aimtec.SDK.Damage;
-using Aimtec.SDK.Prediction.Skillshots;
+using Aimtec.SDK.Util;
 using System.Linq;
-using Aimtec.SDK.Util.Cache;
 
 namespace VayneTheRuler
 {
@@ -208,7 +206,7 @@ namespace VayneTheRuler
             if (Spells.E.Ready)
             {
                 var level = Player.SpellBook.GetSpell(SpellSlot.E).Level;
-                for (int i = 1; i < 475; i += (int)enemy.BoundingRadius)
+                for (int i = 1; i < 450; i += (int)enemy.BoundingRadius)
                 {
                     var CC = enemy.ServerPosition.Extend(Player.ServerPosition, -i);
                     var Flag = NavMesh.WorldToCell(CC).Flags;
@@ -239,7 +237,7 @@ namespace VayneTheRuler
 
         private static void Codemn(Obj_AI_Base enemy)
         {
-            for (int i = 1; i < 475; i += (int)enemy.BoundingRadius)
+            for (int i = 1; i < 450;)
             {
                 var CC = enemy.ServerPosition.Extend(Player.ServerPosition, -i);
                 var Flag = NavMesh.WorldToCell(CC).Flags;
@@ -247,6 +245,32 @@ namespace VayneTheRuler
                 {
                     if (enemy.IsValidTarget(550))
                     {
+                        Spells.E.Cast(enemy);
+                    }
+                }
+            }
+        }
+
+        private static void FlashCodemn(Obj_AI_Base enemy)
+        {
+            for (int i = 1; i < 450;)
+            {
+                var CC = enemy.ServerPosition.Extend(Game.CursorPos, -i);
+                var Flag = NavMesh.WorldToCell(CC).Flags;
+                var CC2 = enemy.ServerPosition.Extend(Player.ServerPosition, -i);
+                var Flag2 = NavMesh.WorldToCell(CC).Flags;
+                if (Flag2.HasFlag(NavCellFlags.Wall) || Flag2.HasFlag(NavCellFlags.Building))
+                {
+                    if (enemy.IsValidTarget(550))
+                    {
+                        Spells.E.Cast(enemy);
+                    }
+                }
+                if (Flag.HasFlag(NavCellFlags.Wall) || Flag.HasFlag(NavCellFlags.Building))
+                {
+                    if (enemy.IsValidTarget() && Spells.Flash.Ready && CC.Distance(Player.ServerPosition) < Spells.Flash.Range)
+                    {
+                        Spells.Flash.Cast(CC);
                         Spells.E.Cast(enemy);
                     }
                 }
@@ -277,6 +301,15 @@ namespace VayneTheRuler
                 if (target != null)
                 {
                     Codemn(target);
+                }
+            }
+
+            if (Setup.Combo["Flash"].As<MenuBool>().Enabled && Spells.E.Ready)
+            {
+                var target = TargetSelector.GetTarget(Spells.E.Range + Spells.Flash.Range);
+                if (target != null && Wdmg(target) * Player.AttackSpeedMod / 3 + RAD(target) * Player.AttackSpeedMod * 3.5 > target.Health && Wdmg(target) * Player.AttackSpeedMod / 3 + RAD(target) * Player.AttackSpeedMod * 1.75 < target.Health)
+                {
+                    FlashCodemn(target);
                 }
             }
 
@@ -402,6 +435,10 @@ namespace VayneTheRuler
             if (Setup.Flee["Q"].As<MenuBool>().Enabled && Spells.Q.Ready)
             {
                 Spells.Q.Cast(Game.CursorPos);
+                if (Setup.Misc["Anim"].As<MenuBool>().Enabled)
+                {
+                    DelayAction.Queue(200, () => MenuGUI.DoEmote(EmoteType.Dance));
+                }
             }
         }
 
